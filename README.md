@@ -4,16 +4,16 @@
 .commons-bar span{font-weight:700}
 .commons-footer{margin-top:3em;font:inherit;line-height:1.6}
 </style>
-<nav class="commons-bar" aria-label="Aurora Commons sites">
-  <a href="https://auroracommons.github.io/auroracommons/">Aurora Commons</a>
-  <a href="https://auroracommons.github.io/auroracommons/foundations.html">Foundations</a>
-  <a href="https://auroracommons.github.io/ground/">Ground</a>
-  <a href="https://auroracommons.github.io/still/">Still</a>
-  <a href="https://auroracommons.github.io/atlas/">Atlas</a>
-  <a href="https://auroracommons.github.io/cohort/">Cohort</a>
+<nav class="commons-bar" aria-label="Topsoil Commons sites">
+  <a href="https://topsoilcommons.github.io/topsoilcommons/"><svg class="bar-mark" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false" style="flex:none;align-self:center;margin-right:7px"><g fill="currentColor"><rect x="4" y="2.5" width="16" height="2"/><rect x="4" y="5.5" width="16" height="2"/><rect x="4" y="8.5" width="16" height="2"/><rect x="4" y="11.5" width="4.5" height="8"/><rect x="15.5" y="11.5" width="4.5" height="8"/><rect x="2" y="20.5" width="20" height="2.2"/></g></svg>Topsoil Commons</a>
+  <a href="https://topsoilcommons.github.io/topsoilcommons/foundations.html">Foundations</a>
+  <a href="https://topsoilcommons.github.io/ground/">Ground</a>
+  <a href="https://topsoilcommons.github.io/still/">Still</a>
+  <a href="https://topsoilcommons.github.io/atlas/">Atlas</a>
+  <a href="https://topsoilcommons.github.io/cohort/">Cohort</a>
   <span aria-current="page">Graph</span>
-  <a href="https://auroracommons.github.io/machine/">Machine</a>
-  <a href="https://auroracommons.github.io/lumen/">Lumen</a>
+  <a href="https://topsoilcommons.github.io/machine/">Machine</a>
+  <a href="https://topsoilcommons.github.io/lumen/">Lumen</a>
 </nav>
 
 # Graph
@@ -38,9 +38,9 @@ This project serves Layer 4: Shared truth. "Knowledge organized well enough to a
 
 Unmet, it looks like: decisions made about communities from scattered and invented data, arguments with no floor of agreed fact, institutions that cannot tell what they know from what they assume.
 
-The full map: [The Ascent, a map of human needs](https://github.com/auroracommons/auroracommons/blob/main/NEEDS.md)
+The full map: [The Ascent, a map of human needs](https://github.com/topsoilcommons/topsoilcommons/blob/main/NEEDS.md)
 
-The research under this layer: [Foundations, Truth and shared knowledge](https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge)
+The research under this layer: [Foundations, Truth and shared knowledge](https://topsoilcommons.github.io/topsoilcommons/foundations.html#truth-and-shared-knowledge)
 
 ## What it is
 
@@ -221,16 +221,16 @@ Read those numbers the way they were earned:
 
 ## Live demo
 
-Live demo: https://auroracommons.github.io/graph/
+Live demo: https://topsoilcommons.github.io/graph/
 
 ## Contribute, human or agent
 
 
-Pick a [good first issue](https://github.com/auroracommons/graph/issues) in this repo. Each one is sized in hours and written to be finishable by a newcomer.
+Pick a [good first issue](https://github.com/topsoilcommons/graph/issues) in this repo. Each one is sized in hours and written to be finishable by a newcomer.
 Try the Eval Challenge against this repo's published extraction scores. Beat a baseline or document a real failure, with the run attached.
 Adopt the extractor or the graph in your own work and report back what happened in real use, good or bad.
 
-The full protocol: [The Open Table](https://github.com/auroracommons/auroracommons/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/auroracommons/auroracommons/blob/main/LEDGER.md).
+The full protocol: [The Open Table](https://github.com/topsoilcommons/topsoilcommons/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/topsoilcommons/topsoilcommons/blob/main/LEDGER.md).
 
 ### Start with a prompt
 
@@ -254,16 +254,16 @@ Say what the extractor produced and what should have happened instead.
 Attach the eval or test output if you have it.
 ```
 
-<p>The layer below: <a href="https://auroracommons.github.io/cohort/">Cohort, belonging</a></p>
-<p>The layer above: <a href="https://auroracommons.github.io/machine/">Machine, autonomy</a></p>
-<p>The research under this layer: <a href="https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge">Foundations, Truth and shared knowledge</a></p>
+<p>The layer below: <a href="https://topsoilcommons.github.io/cohort/">Cohort, belonging</a></p>
+<p>The layer above: <a href="https://topsoilcommons.github.io/machine/">Machine, autonomy</a></p>
+<p>The research under this layer: <a href="https://topsoilcommons.github.io/topsoilcommons/foundations.html#truth-and-shared-knowledge">Foundations, Truth and shared knowledge</a></p>
 Built on Cohort: belonging.
 Unlocks the ability to discern.
 <footer class="commons-footer">
-  <p>Aurora Commons addresses the hierarchy of human needs through open source.</p>
+  <p>Topsoil Commons addresses the hierarchy of human needs through open source.</p>
   <p>Motto: Stand on the shoulders of giants.</p>
   <p>One rule: raise the floor beneath everyone.</p>
-  <p>Its record is filed in <a href="https://auroracommons.github.io/index/">the Index</a>.</p>
+  <p>Its record is filed in <a href="https://topsoilcommons.github.io/index/">the Index</a>.</p>
   <p>Advised by Groundskeeper.</p>
-  <p><a href="https://www.linkedin.com/company/aurora-commons-io/">Aurora Commons on LinkedIn</a></p>
+  <p><a href="https://www.linkedin.com/company/topsoil-commons/">Topsoil Commons on LinkedIn</a></p>
 </footer>
