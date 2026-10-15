@@ -1,5 +1,13 @@
 # Graph
 
+Mission: "Aurora Commons addresses the hierarchy of human needs through open source."
+
+Motto: "Stand on the shoulders of giants."
+
+One rule: "Raise the floor beneath everyone."
+
+Advised by Groundskeeper.
+
 A knowledge graph extraction system written in Python. The
 extraction and graph core runs on the standard library alone; NumPy
 and Matplotlib appear only in evaluation metrics and visualization.
@@ -15,14 +23,19 @@ Unmet, it looks like: decisions made about communities from scattered and invent
 
 The full map: [The Ascent, a map of human needs](https://github.com/auroracommons/auroracommons/blob/main/NEEDS.md)
 
-> **Act 4, the Graph**, in a five part body of work built on one
+The research under this layer: [Foundations, Truth and shared knowledge](https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge)
+
+> **Graph, shared truth, Layer 4**, in The Ascent, built on one
 > thesis: technology should increase human capability without taking
 > human agency away.
 >
-> - Act 1, the Atlas: [atlas](https://github.com/auroracommons/atlas), how people learn.
-> - Act 2, the Commons: [cohort](https://github.com/auroracommons/cohort), how people find each other and build together.
-> - Act 3, the Machine: [machine](https://github.com/auroracommons/machine), how the machine itself learns, from first principles.
-> - Act 5, the Guardrails: [lumen](https://github.com/auroracommons/lumen), how all of it stays safe, cited, and human governed.
+> - Ground (the body): [ground](https://github.com/auroracommons/ground)
+> - Still (the mind at peace): [still](https://github.com/auroracommons/still)
+> - Atlas (learning): [atlas](https://github.com/auroracommons/atlas)
+> - Cohort (belonging): [cohort](https://github.com/auroracommons/cohort)
+> - Graph (shared truth, Layer 4): this repo
+> - Machine (autonomy): [machine](https://github.com/auroracommons/machine)
+> - Lumen (trust and meaning): [lumen](https://github.com/auroracommons/lumen)
 >
 > This act's problem family is information chaos and unorganized
 > knowledge. Its north star metric is questions answered from
