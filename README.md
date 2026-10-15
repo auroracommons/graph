@@ -18,13 +18,7 @@
 
 # Graph
 
-Mission: "Aurora Commons addresses the hierarchy of human needs through open source."
-
-Motto: "Stand on the shoulders of giants."
-
-One rule: "Raise the floor beneath everyone."
-
-Advised by Groundskeeper.
+First step: read [the measured result and its misses](#the-proof), then run the [quick start](#quick-start) to try the tool on your own text.
 
 Graph is a tool that shows what a text actually says, and shows its
 work. You give it plain text. It finds the people, groups, places,
@@ -47,28 +41,6 @@ Unmet, it looks like: decisions made about communities from scattered and invent
 The full map: [The Ascent, a map of human needs](https://github.com/auroracommons/auroracommons/blob/main/NEEDS.md)
 
 The research under this layer: [Foundations, Truth and shared knowledge](https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge)
-
-> **Graph, shared truth, Layer 4**, in The Ascent, built on one
-> thesis: technology should increase human capability without taking
-> human agency away.
->
-> - Ground (the body): [ground](https://github.com/auroracommons/ground)
-> - Still (the mind at peace): [still](https://github.com/auroracommons/still)
-> - Atlas (learning): [atlas](https://github.com/auroracommons/atlas)
-> - Cohort (belonging): [cohort](https://github.com/auroracommons/cohort)
-> - Graph (shared truth, Layer 4): this repo
-> - Machine (autonomy): [machine](https://github.com/auroracommons/machine)
-> - Lumen (trust and meaning): [lumen](https://github.com/auroracommons/lumen)
->
-> This act deals with a plain problem: facts are scattered across
-> many texts, and no one can tell what is known from what is
-> guessed. Its main measure is questions answered from public
-> knowledge that has been put in order. No number is claimed for it
-> yet; the test below measures the tool that pulls names and links
-> from text, not how much it is used.
->
-> The aim, stated as an aim and not as a claim of success: put what
-> texts say into a map that anyone can question and check.
 
 ## What it is
 
@@ -254,7 +226,7 @@ Live demo: https://auroracommons.github.io/graph/
 ## Contribute, human or agent
 
 
-Pick a good first issue in this repo. Each one is sized in hours and written to be finishable by a newcomer.
+Pick a [good first issue](https://github.com/auroracommons/graph/issues) in this repo. Each one is sized in hours and written to be finishable by a newcomer.
 Try the Eval Challenge against this repo's published extraction scores. Beat a baseline or document a real failure, with the run attached.
 Adopt the extractor or the graph in your own work and report back what happened in real use, good or bad.
 

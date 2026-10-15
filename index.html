@@ -38,25 +38,23 @@
   <header>
     <h1>Graph</h1>
     <p>Graph shows what a text actually says: the names it uses and the links it states between them.</p>
+    <p>First step: read the measured result below, then open the full proof in the documentation on GitHub.</p>
     <p>Written in Python. Its main work needs no added code libraries.</p>
     <p>
       <a href="https://github.com/auroracommons/graph">View on GitHub</a>
-      <a href="https://github.com/auroracommons/graph#readme">Documentation</a>
     </p>
   </header>
+  <section>
+      <h2>Measured result</h2>
+      <p>Measured on 2026-10-15 against a hand labeled set of 20 documents, with 133 gold entities and 66 gold relations: entities F1 0.904 and relations F1 0.598.</p>
+      <p>The misses are named, not hidden: the tool misses names its word lists do not know, such as Warsaw and Neil Armstrong, and it cannot follow pronouns across sentences.</p>
+      <p>Full scores, misses, and how they were measured: <a href="https://github.com/auroracommons/graph#the-proof">The proof in the documentation</a>.</p>
+  </section>
   <section>
       <h2>About</h2>
       <p>You give Graph a piece of text. It finds the people, groups, places, dates, and tools the text names. It also finds links the text states, such as who founded a group, where a group is based, and who works for it. It puts the names and links in a map you can search and check.</p>
       <p>It works by fixed rules and word lists. It does not use a large language model. It was built to learn how far plain rules can go on their own.</p>
   </section>
-  <section>
-      <h2>Repository</h2>
-      <p>Owner: auroracommons</p>
-      <p>Repo: graph</p>
-      <p>Type: Python program that pulls names and links from text</p>
-      <p>License: MIT</p>
-  </section>
-  <div class="gallery"><a href="knowledge_graph.png" target="_blank"><img src="knowledge_graph.png" alt="knowledge_graph.png"></a><a href="communities.png" target="_blank"><img src="communities.png" alt="communities.png"></a><a href="subgraph_google.png" target="_blank"><img src="subgraph_google.png" alt="subgraph_google.png"></a></div>
 <p>The layer below: <a href="https://auroracommons.github.io/cohort/">Cohort, belonging</a></p>
 <p>The layer above: <a href="https://auroracommons.github.io/machine/">Machine, autonomy</a></p>
 <p>The research under this layer: <a href="https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge">Foundations, Truth and shared knowledge</a></p>
