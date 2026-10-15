@@ -13,11 +13,13 @@
   h1{font-size:2.2rem;line-height:1.2;margin:24px 0 8px}
   h2{font-size:1.1rem;margin:32px 0 8px}
   section{border-top:1px solid #999;padding-top:8px}
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:32px}
-  .gallery a{display:block;border:1px solid #999;background:#fff}
-  .gallery img{display:block;width:100%;height:auto}
-  .commons-bar{padding:1em 0;line-height:2}
-  .commons-bar a,.commons-bar span{margin-right:1rem}
+  .skip-link{position:absolute;left:16px;top:-60px;background:#fff;color:#111;padding:10px 14px;z-index:10}
+  .skip-link:focus{top:8px}
+  :focus-visible{outline:3px solid #111;outline-offset:2px}
+  [id]{scroll-margin-top:72px}
+  .commons-bar{position:sticky;top:0;background:#fff;border-bottom:1px solid #999;max-width:900px;margin:0 auto;padding:0 24px;line-height:2;z-index:5}
+  .commons-bar a,.commons-bar span{display:inline-flex;align-items:center;min-height:44px;margin-right:1rem}
+  .commons-bar .brand{font-weight:600}
   .commons-bar span{font-weight:700}
   .commons-footer{margin-top:3em;line-height:1.6}
   .scores-table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 14px}
@@ -26,22 +28,25 @@
 </style>
 </head>
 <body>
-<div class="wrap">
+<a class="skip-link" href="#content">Skip to the content</a>
 <nav class="commons-bar" aria-label="Aurora Commons sites">
-  <a href="https://auroracommons.github.io/auroracommons/">Aurora Commons</a>
+  <a class="brand" href="https://auroracommons.github.io/auroracommons/">Aurora Commons</a>
   <a href="https://auroracommons.github.io/auroracommons/foundations.html">Foundations</a>
   <a href="https://auroracommons.github.io/ground/">Ground</a>
   <a href="https://auroracommons.github.io/still/">Still</a>
   <a href="https://auroracommons.github.io/atlas/">Atlas</a>
   <a href="https://auroracommons.github.io/cohort/">Cohort</a>
-  <span aria-current="page">Graph</span>
+  <span aria-current="page">Graph (you are here)</span>
   <a href="https://auroracommons.github.io/machine/">Machine</a>
   <a href="https://auroracommons.github.io/lumen/">Lumen</a>
 </nav>
+<div class="wrap" id="content">
   <header>
     <h1>Graph</h1>
+    <p>One of the seven tools of Aurora Commons. This is Layer 4, shared truth.</p>
     <p>Graph shows what a text actually says: the names it uses and the links it states between them.</p>
-    <p>First step: read the measured result below, then open the full proof in the documentation on GitHub.</p>
+    <p>You get a map of the names and links in a text, one you can search and check for yourself.</p>
+    <p>First step: read the measured result below. It says in plain words how much Graph found and how much it missed.</p>
     <p>Written in Python. Its main work needs no added code libraries.</p>
     <p>
       <a href="https://github.com/auroracommons/graph">View on GitHub</a>
@@ -49,10 +54,30 @@
   </header>
   <section>
       <h2>Measured result</h2>
-      <p>Measured on 2026-10-15 against a hand labeled set of 20 documents, with 133 gold entities and 66 gold relations: entities F1 0.904 and relations F1 0.598.</p>
-      <p>The misses are named, not hidden: the tool misses names its word lists do not know, such as Warsaw and Neil Armstrong, and it cannot follow pronouns across sentences.</p>
-      <p>Full scores, misses, and how they were measured: <a href="https://github.com/auroracommons/graph#the-proof">The proof in the documentation</a>.</p>
 <!-- scores:begin -->
+  <p>Graph was checked on 20 documents that people had labeled by hand. Those documents held 133 named things, such as people, groups, places, and dates, and 66 links stated between them.</p>
+  <p>Of every 100 named things in the documents, Graph found 89 and missed 11. Of every 100 links stated in the documents, Graph found 74 and missed 26.</p>
+  <p>Of every 100 named things Graph returned, 92 were right. Of every 100 links Graph returned, 50 were right.</p>
+  <table class="scores-table">
+    <thead><tr><th scope="col">What was looked for</th><th scope="col">Found right</th><th scope="col">Missed</th><th scope="col">Extra and wrong</th></tr></thead>
+    <tbody>
+    <tr><td>Named things in the text</td><td>118</td><td>15</td><td>10</td></tr>
+    <tr><td>Links stated in the text</td><td>49</td><td>17</td><td>49</td></tr>
+    </tbody>
+  </table>
+  <p>Key: Found right is how many Graph found that were truly there. Missed is how many were there and Graph did not find. Extra and wrong is how many Graph returned that were not there.</p>
+<!-- scores:end -->
+      <p>The misses are named, not hidden: Graph misses names its word lists do not know, such as Warsaw and Neil Armstrong, and it cannot follow pronouns across sentences.</p>
+  </section>
+  <section>
+      <h2>About</h2>
+      <p>You give Graph a piece of text. It finds the people, groups, places, dates, and tools the text names. It also finds links the text states, such as who founded a group, where a group is based, and who works for it. It puts the names and links in a map you can search and check.</p>
+      <p>It works by fixed rules and word lists. It does not use a large language model. It was built to learn how far plain rules can go on their own.</p>
+  </section>
+  <section>
+      <h2>For agents and builders</h2>
+<!-- scores-tech:begin -->
+  <p>Precision means the share of what the extractor returned that was right. Recall means the share of the hand labeled set that the extractor found. F1 means the single score that balances precision and recall.</p>
   <table class="scores-table">
     <thead><tr><th scope="col">What was pulled from the text</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Right</th><th scope="col">Wrong</th><th scope="col">Missed</th></tr></thead>
     <tbody>
@@ -60,20 +85,16 @@
     <tr><td>Relations</td><td>0.5000</td><td>0.7424</td><td>0.5976</td><td>49</td><td>49</td><td>17</td></tr>
     </tbody>
   </table>
-  <p>Key: precision is the share of what the extractor returned that was right. Recall is the share of the gold set it found. F1 is the balance of the two. Right, wrong, and missed count gold items in the eval set named above: 20 documents, 133 gold entities, and 66 gold relations, in results/eval_results.json in this repository.</p>
-<!-- scores:end -->
+  <p>Method: the extractor was run on the hand labeled set named in the artifact, 20 documents with 133 gold entities and 66 gold relations. The artifact is results/eval_results.json in this repository. Right, wrong, and missed count items in that set.</p>
+<!-- scores-tech:end -->
   </section>
-  <section>
-      <h2>About</h2>
-      <p>You give Graph a piece of text. It finds the people, groups, places, dates, and tools the text names. It also finds links the text states, such as who founded a group, where a group is based, and who works for it. It puts the names and links in a map you can search and check.</p>
-      <p>It works by fixed rules and word lists. It does not use a large language model. It was built to learn how far plain rules can go on their own.</p>
-  </section>
-<p>The layer below: <a href="https://auroracommons.github.io/cohort/">Cohort, belonging</a></p>
-<p>The layer above: <a href="https://auroracommons.github.io/machine/">Machine, autonomy</a></p>
 <p>The research under this layer: <a href="https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge">Foundations, Truth and shared knowledge</a></p>
 <p>Built on Cohort: belonging.</p>
 <p>Unlocks the ability to discern.</p>
 <footer class="commons-footer">
+  <p><a href="https://auroracommons.github.io/auroracommons/">Back to the home page</a></p>
+  <p><a href="https://auroracommons.github.io/cohort/">Below this layer: Cohort, belonging</a></p>
+  <p><a href="https://auroracommons.github.io/machine/">Above this layer: Machine, autonomy</a></p>
   <p>Aurora Commons addresses the hierarchy of human needs through open source.</p>
   <p>Motto: Stand on the shoulders of giants.</p>
   <p>One rule: raise the floor beneath everyone.</p>
