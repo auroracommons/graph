@@ -20,6 +20,9 @@
   .commons-bar a,.commons-bar span{margin-right:1rem}
   .commons-bar span{font-weight:700}
   .commons-footer{margin-top:3em;line-height:1.6}
+  .scores-table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 14px}
+  .scores-table th,.scores-table td{border-top:1px solid #e4e0d6;padding:8px 12px 8px 0;text-align:left;vertical-align:top}
+  .scores-table thead th{border-top:0}
 </style>
 </head>
 <body>
@@ -49,6 +52,16 @@
       <p>Measured on 2026-10-15 against a hand labeled set of 20 documents, with 133 gold entities and 66 gold relations: entities F1 0.904 and relations F1 0.598.</p>
       <p>The misses are named, not hidden: the tool misses names its word lists do not know, such as Warsaw and Neil Armstrong, and it cannot follow pronouns across sentences.</p>
       <p>Full scores, misses, and how they were measured: <a href="https://github.com/auroracommons/graph#the-proof">The proof in the documentation</a>.</p>
+<!-- scores:begin -->
+  <table class="scores-table">
+    <thead><tr><th scope="col">What was pulled from the text</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Right</th><th scope="col">Wrong</th><th scope="col">Missed</th></tr></thead>
+    <tbody>
+    <tr><td>Entities</td><td>0.9219</td><td>0.8872</td><td>0.9042</td><td>118</td><td>10</td><td>15</td></tr>
+    <tr><td>Relations</td><td>0.5000</td><td>0.7424</td><td>0.5976</td><td>49</td><td>49</td><td>17</td></tr>
+    </tbody>
+  </table>
+  <p>Key: precision is the share of what the extractor returned that was right. Recall is the share of the gold set it found. F1 is the balance of the two. Right, wrong, and missed count gold items in the eval set named above: 20 documents, 133 gold entities, and 66 gold relations, in results/eval_results.json in this repository.</p>
+<!-- scores:end -->
   </section>
   <section>
       <h2>About</h2>
