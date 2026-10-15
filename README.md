@@ -150,14 +150,26 @@ results/eval_results.json
 
 
 From `scripts/evaluate_extraction.py`, run 2026-10-15 against the
-hand labeled set in `eval/` (8 documents, 63 gold entities, 31 gold
-relations; labeling rules in `eval/README.md`). Full artifact:
-`results/eval_results.json`.
+hand labeled set in `eval/` (20 documents, 133 gold entities, 66
+gold relations; labeling rules and the expansion record in
+`eval/README.md`). Full artifact: `results/eval_results.json`,
+which stores the scores to four decimals (entities F1 0.9042,
+relations F1 0.5976); the table below rounds them to three.
 
 | | Precision | Recall | F1 |
 | --- | --- | --- | --- |
-| Entities (rule based) | 0.937 | 0.937 | 0.937 |
-| Relations (rule based) | 0.473 | 0.839 | 0.605 |
+| Entities (rule based) | 0.922 | 0.887 | 0.904 |
+| Relations (rule based) | 0.500 | 0.742 | 0.598 |
+
+The 0.937 versus 0.936 discrepancy is settled. On the original
+8 documents, the eval artifact `results/eval_results.json`
+produced one value, 0.9365, for entity precision, recall, and F1.
+This README printed 0.937, that value rounded half up to three
+decimals, while CHECKLIST.md printed 0.936, the value as formatted
+by the eval script. There was never a second measurement; both
+files described the same artifact and now use the same rounding.
+The expanded corpus supersedes that headline figure in any case:
+the current figure is 0.904, measured as above.
 
 Read those numbers the way they were earned:
 
@@ -173,13 +185,29 @@ Read those numbers the way they were earned:
   of the proposed relations are not stated in the text. The eval's
   labeling rule (a relation counts only if the text states it) is
   what makes that cost visible instead of hiding it.
+- **The October 15, 2026 expansion lowered the scores, and that
+  is published as measured.** Twelve new documents (NASA
+  biographies, the Nobel Prize summary for CRISPR, and Wikipedia
+  articles, adapted; record in `eval/README.md`) took the set from
+  8 to 20 documents. Entity F1 fell from 0.9365 to 0.9042
+  (precision 0.9365 to 0.9219, recall 0.9365 to 0.8872). Relation
+  F1 fell from 0.6047 to 0.5976: precision rose from 0.4727 to
+  0.5000 while recall fell from 0.8387 to 0.7424, because gold
+  relations whose endpoint entities are missed cannot be found.
 - **The misses are named, not rounded away.** The system misses
   entities its gazetteers do not know (Warsaw, Armonk, Watson,
   iPhone), cannot follow pronouns across sentences ("He joined
   Microsoft" loses the works_for relation), and has documented
   type ambiguities the eval labels against it (Windows and iOS are
   labeled TECHNOLOGY; the gazetteer also lists them as
-  organizations). Details: `eval/README.md` and the eval artifact.
+  organizations). The expansion added named misses of the same
+  kinds: Neil Armstrong, Jennifer Doudna, and Katherine Johnson
+  are not in the person gazetteer, Wapakoneta, Ulm, Huntsville,
+  Alabama, White Sulphur Springs, and the Moon are not in the
+  location gazetteers, Wikipedia as a single word organization is
+  not matched, and Linux and the World Wide Web are also emitted
+  with a second, wrong type. Details: `eval/README.md` and the
+  eval artifact.
 
 ### Status and limitations
 
@@ -188,8 +216,9 @@ Read those numbers the way they were earned:
   gazetteer-known entities, weak on unknown names, pronouns, and
   anything the patterns do not reach. The eval numbers above are
   the current, dated measurement of exactly that.
-- The eval set is smoke sized (8 documents). Growing it is a
-  standing good first issue; see CONTRIBUTING.md.
+- The eval set is still small (20 documents, up from 8 on
+  October 15, 2026). Growing it further is a standing good first
+  issue; see CONTRIBUTING.md.
 - The co-occurrence relation pass trades precision for recall by
   design. A confidence threshold or a stated-ness filter is the
   obvious next experiment, and the eval exists to judge it.
