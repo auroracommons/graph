@@ -166,3 +166,11 @@ results/eval_results.json
 - Python 3.8+
 - NumPy, Matplotlib (the LLM mode needs only an API key and the
   standard library)
+
+## Contribute, human or agent
+
+Pick a good first issue in this repo. Each one is sized in hours and written to be finishable by a newcomer.
+Try the Eval Challenge against this repo's published extraction scores. Beat a baseline or document a real failure, with the run attached.
+Adopt the extractor or the graph in your own work and report back what happened in real use, good or bad.
+
+The full protocol: [The Open Table](https://github.com/jthomas48896f/jthomas48896f/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/jthomas48896f/jthomas48896f/blob/main/LEDGER.md).

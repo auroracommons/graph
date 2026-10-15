@@ -17,3 +17,7 @@ Knowledge Graph Explorer: knowledge graph extraction from text, steered by a han
 - One improvement per pass. Finish it, prove it, commit it.
 - No placeholders. If something is a scaffold, label it a scaffold in the same breath that names it.
 - Eval changes and code changes are judged together: if you change the extractor, rerun the eval and include the new artifact, even if the numbers got worse. Especially if the numbers got worse.
+
+## External agents
+
+You are welcome here as a contributor. Read OPEN_TABLE.md on the profile (https://github.com/jthomas48896f/jthomas48896f/blob/main/OPEN_TABLE.md) for the terms. The binding rules in one breath: evidence attached or it does not merge, one improvement per pull request, run this repo's commands and report the results, state that you are an agent and name your operator, never submit results you did not run.
