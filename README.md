@@ -1,3 +1,21 @@
+<style>
+.commons-bar{font:inherit;padding:1em 0;line-height:2}
+.commons-bar a,.commons-bar span{margin-right:1rem}
+.commons-bar span{font-weight:700}
+.commons-footer{margin-top:3em;font:inherit;line-height:1.6}
+</style>
+<nav class="commons-bar" aria-label="Aurora Commons sites">
+  <a href="https://auroracommons.github.io/auroracommons/">Aurora Commons</a>
+  <a href="https://auroracommons.github.io/auroracommons/foundations.html">Foundations</a>
+  <a href="https://auroracommons.github.io/ground/">Ground</a>
+  <a href="https://auroracommons.github.io/still/">Still</a>
+  <a href="https://auroracommons.github.io/atlas/">Atlas</a>
+  <a href="https://auroracommons.github.io/cohort/">Cohort</a>
+  <span aria-current="page">Graph</span>
+  <a href="https://auroracommons.github.io/machine/">Machine</a>
+  <a href="https://auroracommons.github.io/lumen/">Lumen</a>
+</nav>
+
 # Graph
 
 Mission: "Aurora Commons addresses the hierarchy of human needs through open source."
@@ -8,11 +26,16 @@ One rule: "Raise the floor beneath everyone."
 
 Advised by Groundskeeper.
 
-A knowledge graph extraction system written in Python. The
-extraction and graph core runs on the standard library alone; NumPy
-and Matplotlib appear only in evaluation metrics and visualization.
-Extraction quality is not asserted; it is measured on a hand labeled
-eval set, and the misses are published next to the scores.
+Graph is a tool that shows what a text actually says, and shows its
+work. You give it plain text. It finds the people, groups, places,
+dates, and tools the text names, and the links between them that the
+text states. It then puts those names and links in a map you can
+search and check.
+
+The tool is written in Python. Its main work runs with no added code
+libraries. NumPy and Matplotlib are used only to score the tests and
+draw pictures. We do not claim the tool is good. We test it on texts
+labeled by hand, and we publish the misses next to the scores.
 
 ## The need
 
@@ -37,14 +60,15 @@ The research under this layer: [Foundations, Truth and shared knowledge](https:/
 > - Machine (autonomy): [machine](https://github.com/auroracommons/machine)
 > - Lumen (trust and meaning): [lumen](https://github.com/auroracommons/lumen)
 >
-> This act's problem family is information chaos and unorganized
-> knowledge. Its north star metric is questions answered from
-> organized public knowledge. No number is claimed for it yet; the
-> eval below measures the extractor, not usage.
+> This act deals with a plain problem: facts are scattered across
+> many texts, and no one can tell what is known from what is
+> guessed. Its main measure is questions answered from public
+> knowledge that has been put in order. No number is claimed for it
+> yet; the test below measures the tool that pulls names and links
+> from text, not how much it is used.
 >
-> The frame is the post AI renaissance, stated as aspiration and
-> direction of travel, never as achievement: knowledge organized
-> into structures that can be questioned and checked.
+> The aim, stated as an aim and not as a claim of success: put what
+> texts say into a map that anyone can question and check.
 
 ## What it is
 
@@ -81,7 +105,7 @@ this portfolio does not publish.
 - **Graph algorithms**: PageRank, centrality (betweenness, degree,
   closeness), community detection (Louvain), shortest path,
   connected components
-- **Query engine**: a natural-ish query language for traversal
+- **Query engine**: a simple query language, in plain words, for following links in the graph
 - **Visualization**: force-directed layout from scratch, matplotlib
   rendering
 - **Built-in corpus**: 25+ paragraphs on tech companies, AI,
@@ -257,3 +281,16 @@ File a failure report as an issue and include the input text you ran.
 Say what the extractor produced and what should have happened instead.
 Attach the eval or test output if you have it.
 ```
+
+<p>The layer below: <a href="https://auroracommons.github.io/cohort/">Cohort, belonging</a></p>
+<p>The layer above: <a href="https://auroracommons.github.io/machine/">Machine, autonomy</a></p>
+<p>The research under this layer: <a href="https://auroracommons.github.io/auroracommons/foundations.html#truth-and-shared-knowledge">Foundations, Truth and shared knowledge</a></p>
+Built on Cohort: belonging.
+Unlocks the ability to discern.
+<footer class="commons-footer">
+  <p>Aurora Commons addresses the hierarchy of human needs through open source.</p>
+  <p>Motto: Stand on the shoulders of giants.</p>
+  <p>One rule: raise the floor beneath everyone.</p>
+  <p>Advised by Groundskeeper.</p>
+  <p><a href="https://www.linkedin.com/company/aurora-commons-io/">Aurora Commons on LinkedIn</a></p>
+</footer>
