@@ -6,6 +6,14 @@ and Matplotlib appear only in evaluation metrics and visualization.
 Extraction quality is not asserted; it is measured on a hand labeled
 eval set, and the misses are published next to the scores.
 
+## The need
+
+This project serves Layer 4: Shared truth. "Knowledge organized well enough to argue with. Claims that carry their evidence. Errors published, not buried." This repo serves that need by measuring its extraction on a hand labeled eval set and publishing the misses next to the scores.
+
+Unmet, it looks like: decisions made about communities from scattered and invented data, arguments with no floor of agreed fact, institutions that cannot tell what they know from what they assume.
+
+The full map: [The Bedrock, a map of human needs](https://github.com/jthomas48896f/jthomas48896f/blob/main/NEEDS.md)
+
 > **Act 4, the Graph**, in a five part body of work built on one
 > thesis: technology should increase human capability without taking
 > human agency away.
