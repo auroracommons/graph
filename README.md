@@ -1,10 +1,10 @@
 # Knowledge Graph Explorer
 
-A zero-dependency Python system that extracts entities and
-relationships from text to build knowledge graphs, then analyzes and
-visualizes them. Extraction quality is not asserted; it is measured
-on a hand labeled eval set, and the misses are published next to the
-scores.
+A knowledge graph extraction system written in Python. The
+extraction and graph core runs on the standard library alone; NumPy
+and Matplotlib appear only in evaluation metrics and visualization.
+Extraction quality is not asserted; it is measured on a hand labeled
+eval set, and the misses are published next to the scores.
 
 > **Act 4, the Graph**, in a five part body of work built on one
 > thesis: technology should increase human capability without taking
