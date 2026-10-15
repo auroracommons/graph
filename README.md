@@ -8,20 +8,21 @@ eval set, and the misses are published next to the scores.
 
 ## The need
 
+
 This project serves Layer 4: Shared truth. "Knowledge organized well enough to argue with. Claims that carry their evidence. Errors published, not buried." This repo serves that need by measuring its extraction on a hand labeled eval set and publishing the misses next to the scores.
 
 Unmet, it looks like: decisions made about communities from scattered and invented data, arguments with no floor of agreed fact, institutions that cannot tell what they know from what they assume.
 
-The full map: [The Bedrock, a map of human needs](https://github.com/jthomas48896f/jthomas48896f/blob/main/NEEDS.md)
+The full map: [The Bedrock, a map of human needs](https://github.com/thomassupergravity/thomassupergravity/blob/main/NEEDS.md)
 
 > **Act 4, the Graph**, in a five part body of work built on one
 > thesis: technology should increase human capability without taking
 > human agency away.
 >
-> - Act 1, the Atlas: [supergravity](https://github.com/jthomas48896f/supergravity), how people learn.
-> - Act 2, the Commons: [cohort](https://github.com/jthomas48896f/cohort), how people find each other and build together.
-> - Act 3, the Machine: [neural-net-lab](https://github.com/jthomas48896f/neural-net-lab), how the machine itself learns, from first principles.
-> - Act 5, the Guardrails: [lumen-faith-platform](https://github.com/jthomas48896f/lumen-faith-platform), how all of it stays safe, cited, and human governed.
+> - Act 1, the Atlas: [supergravity](https://github.com/thomassupergravity/supergravity), how people learn.
+> - Act 2, the Commons: [cohort](https://github.com/thomassupergravity/cohort), how people find each other and build together.
+> - Act 3, the Machine: [neural-net-lab](https://github.com/thomassupergravity/neural-net-lab), how the machine itself learns, from first principles.
+> - Act 5, the Guardrails: [lumen-faith-platform](https://github.com/thomassupergravity/lumen-faith-platform), how all of it stays safe, cited, and human governed.
 >
 > This act's problem family is information chaos and unorganized
 > knowledge. Its north star metric is questions answered from
@@ -32,7 +33,108 @@ The full map: [The Bedrock, a map of human needs](https://github.com/jthomas4889
 > direction of travel, never as achievement: knowledge organized
 > into structures that can be questioned and checked.
 
-## Measured extraction quality
+## What it is
+
+### Hybrid extraction, honestly staged
+
+
+The design is hybrid: rule based extraction always runs, offline,
+with no dependencies, and an LLM mode
+(`knowledge_graph_explorer/llm_extractor.py`) extracts through the
+same type system for comparison on the same eval set.
+
+**The LLM mode has not produced numbers in this environment, and
+this README claims none.** With no `OPENAI_API_KEY` set, the mode
+records status "skipped" in every eval artifact and returns nothing.
+That behavior is itself under test
+(`tests/test_extractors.py`). Set the key and rerun
+`scripts/evaluate_extraction.py` and the same artifact gains an LLM
+section measured the same way; until then, any LLM score for this
+project would be invented, and invented numbers are the one thing
+this portfolio does not publish.
+
+### Features
+
+
+- **Entity extraction**: PERSON, ORGANIZATION, LOCATION, DATE, and
+  TECHNOLOGY entities via gazetteers, patterns, and heuristics
+- **Relation extraction**: founded_by, located_in, works_for,
+  acquired, developed, born_in, partner_of, competes_with, via verb
+  patterns plus a co-occurrence pass whose cost the eval measures
+- **LLM extraction mode**: optional, same schema, skips cleanly
+  without a key (see above)
+- **Knowledge graph**: typed nodes and edges, CRUD, JSON
+  serialization, deduplication
+- **Graph algorithms**: PageRank, centrality (betweenness, degree,
+  closeness), community detection (Louvain), shortest path,
+  connected components
+- **Query engine**: a natural-ish query language for traversal
+- **Visualization**: force-directed layout from scratch, matplotlib
+  rendering
+- **Built-in corpus**: 25+ paragraphs on tech companies, AI,
+  computing history, and science
+
+### Quick start
+
+
+```bash
+pip install -r requirements.txt
+python main.py                                  # build and visualize a graph
+python -m unittest discover -s tests            # extractor + eval tests
+python scripts/evaluate_extraction.py           # the measured eval
+```
+
+Running `main.py` produces `knowledge_graph.json`,
+`knowledge_graph.png`, `communities.png`, and
+`subgraph_google.png`.
+
+### Query examples
+
+
+```python
+from knowledge_graph_explorer.query_engine import QueryEngine
+
+qe = QueryEngine(graph)
+qe.execute("find all entities connected to Google")
+qe.execute("path between Elon Musk and Apple")
+qe.execute("entities of type PERSON connected to ORGANIZATION")
+qe.execute("relations of type founded_by")
+qe.execute("info about Tesla")
+```
+
+### Project structure
+
+
+```
+knowledge_graph_explorer/
+    tokenizer.py           - Sentence/word tokenizer, POS-like tagging
+    entity_extractor.py    - Rule based named entity recognition
+    relation_extractor.py  - Verb pattern + co-occurrence relations
+    llm_extractor.py       - Optional LLM mode (skips without a key)
+    knowledge_graph.py     - Graph data structure, CRUD, serialization
+    graph_algorithms.py    - PageRank, communities, paths, centrality
+    query_engine.py        - Query language for graph traversal
+    visualization.py       - Force-directed layout and rendering
+    datasets.py            - Built-in text corpus (25+ paragraphs)
+    main.py                - Pipeline: extract, build, analyze, visualize
+eval/                      - Hand labeled eval set and labeling rules
+scripts/evaluate_extraction.py
+tests/test_extractors.py
+results/eval_results.json
+```
+
+
+### Requirements
+
+
+- Python 3.8+
+- NumPy, Matplotlib (the LLM mode needs only an API key and the
+  standard library)
+
+## The proof
+
+### Measured extraction quality
+
 
 From `scripts/evaluate_extraction.py`, run 2026-10-15 against the
 hand labeled set in `eval/` (8 documents, 63 gold entities, 31 gold
@@ -66,90 +168,8 @@ Read those numbers the way they were earned:
   labeled TECHNOLOGY; the gazetteer also lists them as
   organizations). Details: `eval/README.md` and the eval artifact.
 
-## Hybrid extraction, honestly staged
+### Status and limitations
 
-The design is hybrid: rule based extraction always runs, offline,
-with no dependencies, and an LLM mode
-(`knowledge_graph_explorer/llm_extractor.py`) extracts through the
-same type system for comparison on the same eval set.
-
-**The LLM mode has not produced numbers in this environment, and
-this README claims none.** With no `OPENAI_API_KEY` set, the mode
-records status "skipped" in every eval artifact and returns nothing.
-That behavior is itself under test
-(`tests/test_extractors.py`). Set the key and rerun
-`scripts/evaluate_extraction.py` and the same artifact gains an LLM
-section measured the same way; until then, any LLM score for this
-project would be invented, and invented numbers are the one thing
-this portfolio does not publish.
-
-## Features
-
-- **Entity extraction**: PERSON, ORGANIZATION, LOCATION, DATE, and
-  TECHNOLOGY entities via gazetteers, patterns, and heuristics
-- **Relation extraction**: founded_by, located_in, works_for,
-  acquired, developed, born_in, partner_of, competes_with, via verb
-  patterns plus a co-occurrence pass whose cost the eval measures
-- **LLM extraction mode**: optional, same schema, skips cleanly
-  without a key (see above)
-- **Knowledge graph**: typed nodes and edges, CRUD, JSON
-  serialization, deduplication
-- **Graph algorithms**: PageRank, centrality (betweenness, degree,
-  closeness), community detection (Louvain), shortest path,
-  connected components
-- **Query engine**: a natural-ish query language for traversal
-- **Visualization**: force-directed layout from scratch, matplotlib
-  rendering
-- **Built-in corpus**: 25+ paragraphs on tech companies, AI,
-  computing history, and science
-
-## Quick start
-
-```bash
-pip install -r requirements.txt
-python main.py                                  # build and visualize a graph
-python -m unittest discover -s tests            # extractor + eval tests
-python scripts/evaluate_extraction.py           # the measured eval
-```
-
-Running `main.py` produces `knowledge_graph.json`,
-`knowledge_graph.png`, `communities.png`, and
-`subgraph_google.png`.
-
-## Query examples
-
-```python
-from knowledge_graph_explorer.query_engine import QueryEngine
-
-qe = QueryEngine(graph)
-qe.execute("find all entities connected to Google")
-qe.execute("path between Elon Musk and Apple")
-qe.execute("entities of type PERSON connected to ORGANIZATION")
-qe.execute("relations of type founded_by")
-qe.execute("info about Tesla")
-```
-
-## Project structure
-
-```
-knowledge_graph_explorer/
-    tokenizer.py           - Sentence/word tokenizer, POS-like tagging
-    entity_extractor.py    - Rule based named entity recognition
-    relation_extractor.py  - Verb pattern + co-occurrence relations
-    llm_extractor.py       - Optional LLM mode (skips without a key)
-    knowledge_graph.py     - Graph data structure, CRUD, serialization
-    graph_algorithms.py    - PageRank, communities, paths, centrality
-    query_engine.py        - Query language for graph traversal
-    visualization.py       - Force-directed layout and rendering
-    datasets.py            - Built-in text corpus (25+ paragraphs)
-    main.py                - Pipeline: extract, build, analyze, visualize
-eval/                      - Hand labeled eval set and labeling rules
-scripts/evaluate_extraction.py
-tests/test_extractors.py
-results/eval_results.json
-```
-
-## Status and limitations
 
 - Rule based extraction is a teaching-grade instrument: strong on
   gazetteer-known entities, weak on unknown names, pronouns, and
@@ -161,16 +181,37 @@ results/eval_results.json
   design. A confidence threshold or a stated-ness filter is the
   obvious next experiment, and the eval exists to judge it.
 
-## Requirements
+## Live demo
 
-- Python 3.8+
-- NumPy, Matplotlib (the LLM mode needs only an API key and the
-  standard library)
+Live demo: https://thomassupergravity.github.io/knowledge-graph-explorer/
 
 ## Contribute, human or agent
+
 
 Pick a good first issue in this repo. Each one is sized in hours and written to be finishable by a newcomer.
 Try the Eval Challenge against this repo's published extraction scores. Beat a baseline or document a real failure, with the run attached.
 Adopt the extractor or the graph in your own work and report back what happened in real use, good or bad.
 
-The full protocol: [The Open Table](https://github.com/jthomas48896f/jthomas48896f/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/jthomas48896f/jthomas48896f/blob/main/LEDGER.md).
+The full protocol: [The Open Table](https://github.com/thomassupergravity/thomassupergravity/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/thomassupergravity/thomassupergravity/blob/main/LEDGER.md).
+
+### Start with a prompt
+
+For an AI agent:
+
+```
+You are an AI agent contributing to Knowledge Graph Explorer. Run the Eval Challenge end to end.
+Install with: pip install -r requirements.txt
+Run the tests with: python -m unittest discover -s tests -v
+Run the eval with: python scripts/evaluate_extraction.py --out /tmp/eval_results.json
+Compare your run to the published baseline on the hand labeled set in eval/ (8 documents, 63 gold entities, 31 gold relations): entities precision 0.937, recall 0.937, F1 0.937; relations precision 0.473, recall 0.839, F1 0.605.
+Beat a baseline or document a real failure.
+Attach the run to your pull request, keep one improvement per pull request, and name your operator.
+```
+
+For a human:
+
+```
+File a failure report as an issue and include the input text you ran.
+Say what the extractor produced and what should have happened instead.
+Attach the eval or test output if you have it.
+```

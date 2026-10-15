@@ -16,7 +16,7 @@ State as of October 15, 2026. Every line carries its evidence; a line without ev
 - [x] Repo description and topics set (description states the verified eval scores)
 - [x] Good first issues open: #1 label two eval documents in a new domain, #2 document a failure (both labeled good first issue, sized in hours)
 - [x] Tagged release: v0.1.0, first verified baseline (published, marked Latest)
-- [x] Live demo: https://jthomas48896f.github.io/knowledge-graph-explorer/ (render verified October 15, 2026)
+- [x] Live demo: https://thomassupergravity.github.io/knowledge-graph-explorer/ (render verified October 15, 2026)
 - [x] Fresh baseline rerun October 15, 2026: 7 tests OK; eval on 8 documents, 63 gold entities, 31 gold relations: entities F1 0.936, relations F1 0.605, LLM mode skipped (no API key; no LLM metrics claimed anywhere in this repo)
 
 ## Working agreements
