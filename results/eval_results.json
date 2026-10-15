@@ -1,0 +1,29 @@
+{
+  "eval_set": "eval/eval_set.json",
+  "documents": 8,
+  "gold_entities": 63,
+  "gold_relations": 31,
+  "rule_based": {
+    "entities": {
+      "tp": 59,
+      "fp": 4,
+      "fn": 4,
+      "precision": 0.9365,
+      "recall": 0.9365,
+      "f1": 0.9365
+    },
+    "relations": {
+      "tp": 26,
+      "fp": 29,
+      "fn": 5,
+      "precision": 0.4727,
+      "recall": 0.8387,
+      "f1": 0.6047
+    }
+  },
+  "llm": {
+    "status": "skipped",
+    "reason": "OPENAI_API_KEY is not set; LLM extraction did not run. No LLM results are reported anywhere in this repo unless a real run produced them.",
+    "model": "gpt-4o-mini"
+  }
+}
