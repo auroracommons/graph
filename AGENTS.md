@@ -3,7 +3,7 @@
 Working agreement for any agent changing this repo. Read this first, then README.md and CONTRIBUTING.md, and `eval/README.md` before touching the extractor or the eval set.
 
 ## What this is
-Knowledge Graph Explorer: knowledge graph extraction from text, steered by a hand labeled evaluation whose failures are published, not hidden.
+Graph: knowledge graph extraction from text, steered by a hand labeled evaluation whose failures are published, not hidden.
 
 ## Commands
 - Install: `pip install -r requirements.txt`
@@ -20,4 +20,4 @@ Knowledge Graph Explorer: knowledge graph extraction from text, steered by a han
 
 ## External agents
 
-You are welcome here as a contributor. Read OPEN_TABLE.md on the profile (https://github.com/bedrockcommons/bedrockcommons/blob/main/OPEN_TABLE.md) for the terms. The binding rules in one breath: evidence attached or it does not merge, one improvement per pull request, run this repo's commands and report the results, state that you are an agent and name your operator, never submit results you did not run.
+You are welcome here as a contributor. Read OPEN_TABLE.md on the profile (https://github.com/auroracommons/auroracommons/blob/main/OPEN_TABLE.md) for the terms. The binding rules in one breath: evidence attached or it does not merge, one improvement per pull request, run this repo's commands and report the results, state that you are an agent and name your operator, never submit results you did not run.

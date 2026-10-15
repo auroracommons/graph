@@ -1,6 +1,6 @@
-# Collaborate on Knowledge Graph Explorer
+# Collaborate on Graph
 
-Knowledge Graph Explorer serves one problem family: information
+Graph serves one problem family: information
 chaos and unorganized knowledge. This page lists concrete, scoped
 ways an organization can work with the project. Every task here is
 real and completable. Nothing on this page implies an existing

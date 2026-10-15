@@ -1,4 +1,4 @@
-# Knowledge Graph Explorer
+# Graph
 
 A knowledge graph extraction system written in Python. The
 extraction and graph core runs on the standard library alone; NumPy
@@ -13,16 +13,16 @@ This project serves Layer 4: Shared truth. "Knowledge organized well enough to a
 
 Unmet, it looks like: decisions made about communities from scattered and invented data, arguments with no floor of agreed fact, institutions that cannot tell what they know from what they assume.
 
-The full map: [The Bedrock, a map of human needs](https://github.com/bedrockcommons/bedrockcommons/blob/main/NEEDS.md)
+The full map: [The Ascent, a map of human needs](https://github.com/auroracommons/auroracommons/blob/main/NEEDS.md)
 
 > **Act 4, the Graph**, in a five part body of work built on one
 > thesis: technology should increase human capability without taking
 > human agency away.
 >
-> - Act 1, the Atlas: [supergravity](https://github.com/bedrockcommons/supergravity), how people learn.
-> - Act 2, the Commons: [cohort](https://github.com/bedrockcommons/cohort), how people find each other and build together.
-> - Act 3, the Machine: [neural-net-lab](https://github.com/bedrockcommons/neural-net-lab), how the machine itself learns, from first principles.
-> - Act 5, the Guardrails: [lumen-faith-platform](https://github.com/bedrockcommons/lumen-faith-platform), how all of it stays safe, cited, and human governed.
+> - Act 1, the Atlas: [atlas](https://github.com/auroracommons/atlas), how people learn.
+> - Act 2, the Commons: [cohort](https://github.com/auroracommons/cohort), how people find each other and build together.
+> - Act 3, the Machine: [machine](https://github.com/auroracommons/machine), how the machine itself learns, from first principles.
+> - Act 5, the Guardrails: [lumen](https://github.com/auroracommons/lumen), how all of it stays safe, cited, and human governed.
 >
 > This act's problem family is information chaos and unorganized
 > knowledge. Its north star metric is questions answered from
@@ -183,7 +183,7 @@ Read those numbers the way they were earned:
 
 ## Live demo
 
-Live demo: https://bedrockcommons.github.io/knowledge-graph-explorer/
+Live demo: https://auroracommons.github.io/graph/
 
 ## Contribute, human or agent
 
@@ -192,14 +192,14 @@ Pick a good first issue in this repo. Each one is sized in hours and written to 
 Try the Eval Challenge against this repo's published extraction scores. Beat a baseline or document a real failure, with the run attached.
 Adopt the extractor or the graph in your own work and report back what happened in real use, good or bad.
 
-The full protocol: [The Open Table](https://github.com/bedrockcommons/bedrockcommons/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/bedrockcommons/bedrockcommons/blob/main/LEDGER.md).
+The full protocol: [The Open Table](https://github.com/auroracommons/auroracommons/blob/main/OPEN_TABLE.md). Verified work is credited in the public [Ledger](https://github.com/auroracommons/auroracommons/blob/main/LEDGER.md).
 
 ### Start with a prompt
 
 For an AI agent:
 
 ```
-You are an AI agent contributing to Knowledge Graph Explorer. Run the Eval Challenge end to end.
+You are an AI agent contributing to Graph. Run the Eval Challenge end to end.
 Install with: pip install -r requirements.txt
 Run the tests with: python -m unittest discover -s tests -v
 Run the eval with: python scripts/evaluate_extraction.py --out /tmp/eval_results.json

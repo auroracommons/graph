@@ -1,4 +1,4 @@
-# Contributing to Knowledge Graph Explorer
+# Contributing to Graph
 
 Contributions are welcome, and the door is kept visibly open: there
 is always at least one good first issue available. The house rule

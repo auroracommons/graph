@@ -1,8 +1,8 @@
 # Pull request
 
-## What changed and which Bedrock layer it serves
+## What changed and which Ascent layer it serves
 
-Describe what changed in plain terms, and name the Bedrock layer it serves. This repo serves Layer 4, Shared truth, unless the change clearly serves another layer.
+Describe what changed in plain terms, and name the Ascent layer it serves. This repo serves Layer 4, Shared truth, unless the change clearly serves another layer.
 
 ## The run that proves it
 
