@@ -145,17 +145,17 @@ results/eval_results.json
 ### Measured extraction quality
 
 
-From `scripts/evaluate_extraction.py`, run 2026-10-15 against the
-hand labeled set in `eval/` (20 documents, 133 gold entities, 66
+From `scripts/evaluate_extraction.py`, run 2026-10-16 against the
+hand labeled set in `eval/` (22 documents, 148 gold entities, 75
 gold relations; labeling rules and the expansion record in
 `eval/README.md`). Full artifact: `results/eval_results.json`,
-which stores the scores to four decimals (entities F1 0.9042,
-relations F1 0.5976); the table below rounds them to three.
+which stores the scores to four decimals (entities F1 0.8502,
+relations F1 0.5632); the table below rounds them to three.
 
 | | Precision | Recall | F1 |
 | --- | --- | --- | --- |
-| Entities (rule based) | 0.922 | 0.887 | 0.904 |
-| Relations (rule based) | 0.500 | 0.742 | 0.598 |
+| Entities (rule based) | 0.878 | 0.824 | 0.850 |
+| Relations (rule based) | 0.495 | 0.653 | 0.563 |
 
 The 0.937 versus 0.936 discrepancy is settled. On the original
 8 documents, the eval artifact `results/eval_results.json`
@@ -165,7 +165,7 @@ decimals, while CHECKLIST.md printed 0.936, the value as formatted
 by the eval script. There was never a second measurement; both
 files described the same artifact and now use the same rounding.
 The expanded corpus supersedes that headline figure in any case:
-the current figure is 0.904, measured as above.
+the current figure is 0.850, measured as above.
 
 Read those numbers the way they were earned:
 
@@ -190,6 +190,16 @@ Read those numbers the way they were earned:
   F1 fell from 0.6047 to 0.5976: precision rose from 0.4727 to
   0.5000 while recall fell from 0.8387 to 0.7424, because gold
   relations whose endpoint entities are missed cannot be found.
+- **The October 16, 2026 expansion lowered them again, printed
+  the same way.** Two ocean research documents took the set from
+  20 to 22 documents. Entity F1 fell from 0.9042 to 0.8502
+  (precision 0.9219 to 0.8777, recall 0.8872 to 0.8243). Relation
+  F1 fell from 0.5976 to 0.5632 (precision 0.5000 to 0.4949,
+  recall 0.7424 to 0.6533). The misses concentrate where they
+  always have: names the gazetteers do not know, now including
+  Alvin, WHOI, and the Carnegie institutions. The full record,
+  including a labeling correction made before the run, is in
+  `eval/README.md`.
 - **The misses are named, not rounded away.** The system misses
   entities its gazetteers do not know (Warsaw, Armonk, Watson,
   iPhone), cannot follow pronouns across sentences ("He joined

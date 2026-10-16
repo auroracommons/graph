@@ -97,6 +97,26 @@ Scores, exactly as measured by `scripts/evaluate_extraction.py`:
   relation whose endpoints are missed is missed at the pipeline
   level, so relation recall fell with entity recall.
 
+## Expansion record, October 16, 2026
+
+Two documents in a domain the set did not cover, ocean research
+institutions, written for this expansion and labeled under the rules
+above: `ocean-research` (the submersible Alvin and the Woods Hole
+Oceanographic Institution) and `carnegie-observatories` (the
+Carnegie Institution for Science and Edwin Hubble). One labeling
+correction was made before the run: an early draft of the ocean
+document carried a DATE entity its text never states; it was
+removed, because a label comes from the text or it does not ship.
+
+Scores after this expansion (22 documents, 148 gold entities, 75
+gold relations, current `results/eval_results.json`): entities P
+0.8777, R 0.8243, F1 0.8502; relations P 0.4949, R 0.6533, F1
+0.5632. Both F1 scores fell again, for the same named reason: the
+new documents name things the gazetteers do not know (Alvin, WHOI,
+the Carnegie names), entity recall fell, and relation recall fell
+with it, because a gold relation whose endpoints are missed is
+missed at the pipeline level.
+
 ## Scoring
 
 Micro averaged precision, recall, and F1 over the whole set. Entities
@@ -109,7 +129,7 @@ pipeline experiences.
 
 ## Size, stated plainly
 
-20 documents, 133 gold entities, 66 gold relations. That is still
+22 documents, 148 gold entities, 75 gold relations. That is still
 a small eval, useful for regression tracking and honest comparison
 between the rule based and LLM extractors, not a benchmark.
 Growing it is a standing good first issue (see CONTRIBUTING.md).
