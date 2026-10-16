@@ -214,6 +214,7 @@ Read those numbers the way they were earned:
   not matched, and Linux and the World Wide Web are also emitted
   with a second, wrong type. Details: `eval/README.md` and the
   eval artifact.
+- **Full error analysis of the current run:** [`eval/ERROR_ANALYSIS.md`](eval/ERROR_ANALYSIS.md) classifies all 119 error instances (43 entity, 76 relation) into counted classes and ranks what each class implies for the next fix.
 
 ### Status and limitations
 

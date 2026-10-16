@@ -133,3 +133,9 @@ pipeline experiences.
 a small eval, useful for regression tracking and honest comparison
 between the rule based and LLM extractors, not a benchmark.
 Growing it is a standing good first issue (see CONTRIBUTING.md).
+
+## Error analysis
+
+`ERROR_ANALYSIS.md` in this folder classifies every false positive
+and false negative of the 22 document run into counted classes,
+with examples, and ranks what each class implies for the next fix.
