@@ -1,0 +1,281 @@
+{
+  "corpus": "eval/eval_set.json, 22 documents, extracted with the repo's rule based pipeline and merged into one KnowledgeGraph",
+  "graph": {
+    "nodes": 117,
+    "edges": 99
+  },
+  "summary": {
+    "queries": 22,
+    "target_in_neighbors": 13,
+    "target_in_neighbors_rate": 0.5909,
+    "path_found": 13,
+    "path_found_rate": 0.5909
+  },
+  "rows": [
+    {
+      "doc": "apple",
+      "gold_relation": {
+        "source": "Steve Jobs",
+        "target": "Apple",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Steve Jobs",
+      "target_in_neighbors": true,
+      "path_query": "path between Steve Jobs and Apple",
+      "path_found": true
+    },
+    {
+      "doc": "google",
+      "gold_relation": {
+        "source": "Larry Page",
+        "target": "Google",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Larry Page",
+      "target_in_neighbors": true,
+      "path_query": "path between Larry Page and Google",
+      "path_found": true
+    },
+    {
+      "doc": "microsoft",
+      "gold_relation": {
+        "source": "Satya Nadella",
+        "target": "Hyderabad",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Satya Nadella",
+      "target_in_neighbors": true,
+      "path_query": "path between Satya Nadella and Hyderabad",
+      "path_found": true
+    },
+    {
+      "doc": "openai",
+      "gold_relation": {
+        "source": "Sam Altman",
+        "target": "OpenAI",
+        "type": "works_for"
+      },
+      "neighbors_query": "neighbors of Sam Altman",
+      "target_in_neighbors": true,
+      "path_query": "path between Sam Altman and OpenAI",
+      "path_found": true
+    },
+    {
+      "doc": "computing pioneers",
+      "gold_relation": {
+        "source": "Alan Turing",
+        "target": "London",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Alan Turing",
+      "target_in_neighbors": true,
+      "path_query": "path between Alan Turing and London",
+      "path_found": true
+    },
+    {
+      "doc": "musk companies",
+      "gold_relation": {
+        "source": "Elon Musk",
+        "target": "SpaceX",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Elon Musk",
+      "target_in_neighbors": true,
+      "path_query": "path between Elon Musk and SpaceX",
+      "path_found": true
+    },
+    {
+      "doc": "curie",
+      "gold_relation": {
+        "source": "Marie Curie",
+        "target": "Warsaw",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Marie Curie",
+      "target_in_neighbors": false,
+      "path_query": "path between Marie Curie and Warsaw",
+      "path_found": false
+    },
+    {
+      "doc": "ibm",
+      "gold_relation": {
+        "source": "IBM",
+        "target": "Armonk",
+        "type": "located_in"
+      },
+      "neighbors_query": "neighbors of IBM",
+      "target_in_neighbors": false,
+      "path_query": "path between IBM and Armonk",
+      "path_found": false
+    },
+    {
+      "doc": "facebook",
+      "gold_relation": {
+        "source": "Mark Zuckerberg",
+        "target": "Facebook",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Mark Zuckerberg",
+      "target_in_neighbors": true,
+      "path_query": "path between Mark Zuckerberg and Facebook",
+      "path_found": true
+    },
+    {
+      "doc": "oracle",
+      "gold_relation": {
+        "source": "Larry Ellison",
+        "target": "Oracle",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Larry Ellison",
+      "target_in_neighbors": true,
+      "path_query": "path between Larry Ellison and Oracle",
+      "path_found": true
+    },
+    {
+      "doc": "world wide web",
+      "gold_relation": {
+        "source": "Tim Berners-Lee",
+        "target": "London",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Tim Berners-Lee",
+      "target_in_neighbors": true,
+      "path_query": "path between Tim Berners-Lee and London",
+      "path_found": true
+    },
+    {
+      "doc": "linux and git",
+      "gold_relation": {
+        "source": "Linus Torvalds",
+        "target": "Helsinki",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Linus Torvalds",
+      "target_in_neighbors": true,
+      "path_query": "path between Linus Torvalds and Helsinki",
+      "path_found": true
+    },
+    {
+      "doc": "amazon",
+      "gold_relation": {
+        "source": "Jeff Bezos",
+        "target": "Amazon",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Jeff Bezos",
+      "target_in_neighbors": true,
+      "path_query": "path between Jeff Bezos and Amazon",
+      "path_found": true
+    },
+    {
+      "doc": "armstrong",
+      "gold_relation": {
+        "source": "Neil Armstrong",
+        "target": "Wapakoneta",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Neil Armstrong",
+      "target_in_neighbors": false,
+      "path_query": "path between Neil Armstrong and Wapakoneta",
+      "path_found": false
+    },
+    {
+      "doc": "crispr",
+      "gold_relation": {
+        "source": "Jennifer Doudna",
+        "target": "Washington",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Jennifer Doudna",
+      "target_in_neighbors": false,
+      "path_query": "path between Jennifer Doudna and Washington",
+      "path_found": false
+    },
+    {
+      "doc": "einstein",
+      "gold_relation": {
+        "source": "Albert Einstein",
+        "target": "Ulm",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Albert Einstein",
+      "target_in_neighbors": false,
+      "path_query": "path between Albert Einstein and Ulm",
+      "path_found": false
+    },
+    {
+      "doc": "samsung",
+      "gold_relation": {
+        "source": "Samsung",
+        "target": "Seoul",
+        "type": "located_in"
+      },
+      "neighbors_query": "neighbors of Samsung",
+      "target_in_neighbors": true,
+      "path_query": "path between Samsung and Seoul",
+      "path_found": true
+    },
+    {
+      "doc": "spotify",
+      "gold_relation": {
+        "source": "Daniel Ek",
+        "target": "Spotify",
+        "type": "founded_by"
+      },
+      "neighbors_query": "neighbors of Daniel Ek",
+      "target_in_neighbors": true,
+      "path_query": "path between Daniel Ek and Spotify",
+      "path_found": true
+    },
+    {
+      "doc": "wikipedia founder",
+      "gold_relation": {
+        "source": "Jimmy Wales",
+        "target": "Huntsville",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Jimmy Wales",
+      "target_in_neighbors": false,
+      "path_query": "path between Jimmy Wales and Huntsville",
+      "path_found": false
+    },
+    {
+      "doc": "katherine johnson",
+      "gold_relation": {
+        "source": "Katherine Johnson",
+        "target": "White Sulphur Springs",
+        "type": "born_in"
+      },
+      "neighbors_query": "neighbors of Katherine Johnson",
+      "target_in_neighbors": false,
+      "path_query": "path between Katherine Johnson and White Sulphur Springs",
+      "path_found": false
+    },
+    {
+      "doc": "ocean-research",
+      "gold_relation": {
+        "source": "Alvin",
+        "target": "U.S. Navy",
+        "type": "commissioned_by"
+      },
+      "neighbors_query": "neighbors of Alvin",
+      "target_in_neighbors": false,
+      "path_query": "path between Alvin and U.S. Navy",
+      "path_found": false
+    },
+    {
+      "doc": "carnegie-observatories",
+      "gold_relation": {
+        "source": "Carnegie Institution for Science",
+        "target": "Washington, D.C.",
+        "type": "headquartered_in"
+      },
+      "neighbors_query": "neighbors of Carnegie Institution for Science",
+      "target_in_neighbors": false,
+      "path_query": "path between Carnegie Institution for Science and Washington, D.C.",
+      "path_found": false
+    }
+  ],
+  "note": "Queries are derived from the gold labels, one per document with a gold relation. A miss is published in rows, not averaged away."
+}

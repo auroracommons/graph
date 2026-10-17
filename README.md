@@ -215,6 +215,7 @@ Read those numbers the way they were earned:
   with a second, wrong type. Details: `eval/README.md` and the
   eval artifact.
 - **Full error analysis of the current run:** [`eval/ERROR_ANALYSIS.md`](eval/ERROR_ANALYSIS.md) classifies all 119 error instances (43 entity, 76 relation) into counted classes and ranks what each class implies for the next fix.
+- **Retrieval over the merged graph, measured:** [`scripts/retrieval_demo.py`](scripts/retrieval_demo.py) builds one graph from all 22 eval documents with the repo's own pipeline (117 nodes, 99 edges) and retrieves answers from it with the QueryEngine, checked against the gold labels. On October 17, 2026: for one gold relation per document, the gold target appeared among the source's retrieved neighbors in 13 of 22 queries, and a path between the pair was found in 13 of 22. All 9 misses are the same shape: the document's first gold relation points to a place name the gazetteer does not know (Warsaw, Armonk, Ulm, Huntsville, and four more), so the entity was never extracted and no edge exists to retrieve. The misses are named per document in [`results/retrieval_demo.json`](results/retrieval_demo.json), not averaged away.
 
 ### Status and limitations
 
