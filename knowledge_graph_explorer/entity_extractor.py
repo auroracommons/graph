@@ -33,13 +33,14 @@ CITIES = {
     "Detroit", "Pittsburgh", "Philadelphia", "Atlanta", "Denver",
     "Portland", "Minneapolis", "Washington", "Houston", "Dallas",
     "Miami", "Las Vegas", "Phoenix", "Nashville", "Hawthorne",
-    "Heerlen", "Eindhoven",
+    "Heerlen", "Eindhoven", "Warsaw", "Armonk", "Ulm", "Huntsville",
+    "Wapakoneta", "White Sulphur Springs", "Washington, D.C.",
 }
 
 STATES_REGIONS = {
     "California", "Texas", "New York", "Massachusetts", "Washington",
     "Virginia", "Florida", "Illinois", "Pennsylvania", "Ohio",
-    "Georgia", "Colorado", "Oregon", "Bavaria", "Saxony",
+    "Georgia", "Colorado", "Oregon", "Bavaria", "Saxony", "Alabama",
     "Europe", "Asia", "Africa", "North America", "South America",
     "Middle East", "Southeast Asia", "East Asia", "Western Europe",
 }

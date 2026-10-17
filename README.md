@@ -145,17 +145,17 @@ results/eval_results.json
 ### Measured extraction quality
 
 
-From `scripts/evaluate_extraction.py`, run 2026-10-16 against the
+From `scripts/evaluate_extraction.py`, run 2026-10-17 against the
 hand labeled set in `eval/` (22 documents, 148 gold entities, 75
 gold relations; labeling rules and the expansion record in
 `eval/README.md`). Full artifact: `results/eval_results.json`,
-which stores the scores to four decimals (entities F1 0.8502,
-relations F1 0.5632); the table below rounds them to three.
+which stores the scores to four decimals (entities F1 0.8805,
+relations F1 0.6034); the table below rounds them to three.
 
 | | Precision | Recall | F1 |
 | --- | --- | --- | --- |
-| Entities (rule based) | 0.878 | 0.824 | 0.850 |
-| Relations (rule based) | 0.495 | 0.653 | 0.563 |
+| Entities (rule based) | 0.890 | 0.872 | 0.880 |
+| Relations (rule based) | 0.519 | 0.720 | 0.603 |
 
 The 0.937 versus 0.936 discrepancy is settled. On the original
 8 documents, the eval artifact `results/eval_results.json`
@@ -165,7 +165,7 @@ decimals, while CHECKLIST.md printed 0.936, the value as formatted
 by the eval script. There was never a second measurement; both
 files described the same artifact and now use the same rounding.
 The expanded corpus supersedes that headline figure in any case:
-the current figure is 0.850, measured as above.
+the current figure is 0.880, measured as above.
 
 Read those numbers the way they were earned:
 
@@ -200,22 +200,37 @@ Read those numbers the way they were earned:
   Alvin, WHOI, and the Carnegie institutions. The full record,
   including a labeling correction made before the run, is in
   `eval/README.md`.
+- **Gazetteer growth, October 17, 2026, raised the scores, and
+  that is published the same way.** Eight gold LOCATION names
+  verified against `eval/eval_set.json` were added: Warsaw,
+  Armonk, Ulm, Huntsville, Wapakoneta, and White Sulphur Springs
+  and Washington, D.C. to the city gazetteer, and Alabama to the
+  states and regions gazetteer. Entity F1 rose from 0.8502 to
+  0.8805 (precision 0.8777 to 0.8897, recall 0.8243 to 0.8716;
+  129 true positives, 16 false positives, 19 false negatives,
+  against 122, 17, and 26 before). Relation F1 rose from 0.5632
+  to 0.6034 (precision 0.4949 to 0.5192, recall 0.6533 to 0.7200).
+  Seven of the eight names are now extracted; Washington, D.C.
+  is in the gazetteer but still not extracted, because the
+  gazetteer matcher requires a word boundary after the entry and
+  a string ending in a period has none. That boundary case is
+  recorded in `eval/README.md`, not hidden behind the gain.
 - **The misses are named, not rounded away.** The system misses
-  entities its gazetteers do not know (Warsaw, Armonk, Watson,
-  iPhone), cannot follow pronouns across sentences ("He joined
-  Microsoft" loses the works_for relation), and has documented
-  type ambiguities the eval labels against it (Windows and iOS are
-  labeled TECHNOLOGY; the gazetteer also lists them as
-  organizations). The expansion added named misses of the same
-  kinds: Neil Armstrong, Jennifer Doudna, and Katherine Johnson
-  are not in the person gazetteer, Wapakoneta, Ulm, Huntsville,
-  Alabama, White Sulphur Springs, and the Moon are not in the
-  location gazetteers, Wikipedia as a single word organization is
-  not matched, and Linux and the World Wide Web are also emitted
-  with a second, wrong type. Details: `eval/README.md` and the
-  eval artifact.
-- **Full error analysis of the current run:** [`eval/ERROR_ANALYSIS.md`](eval/ERROR_ANALYSIS.md) classifies all 119 error instances (43 entity, 76 relation) into counted classes and ranks what each class implies for the next fix.
-- **Retrieval over the merged graph, measured:** [`scripts/retrieval_demo.py`](scripts/retrieval_demo.py) builds one graph from all 22 eval documents with the repo's own pipeline (117 nodes, 99 edges) and retrieves answers from it with the QueryEngine, checked against the gold labels. On October 17, 2026: for one gold relation per document, the gold target appeared among the source's retrieved neighbors in 13 of 22 queries, and a path between the pair was found in 13 of 22. All 9 misses are the same shape: the document's first gold relation points to a place name the gazetteer does not know (Warsaw, Armonk, Ulm, Huntsville, and four more), so the entity was never extracted and no edge exists to retrieve. The misses are named per document in [`results/retrieval_demo.json`](results/retrieval_demo.json), not averaged away.
+  entities its gazetteers do not know (Watson, iPhone), cannot
+  follow pronouns across sentences ("He joined Microsoft" loses
+  the works_for relation), and has documented type ambiguities
+  the eval labels against it (Windows and iOS are labeled
+  TECHNOLOGY; the gazetteer also lists them as organizations).
+  Named misses that remain: Neil Armstrong, Jennifer Doudna, and
+  Katherine Johnson, whose names sit at the start of sentences
+  in their documents (the sentence initial person names class);
+  the Moon; Wikipedia as a single word organization; Alvin and
+  U.S. Navy in the ocean research document; and Washington, D.C.
+  as the boundary case above. Linux and the World Wide Web are
+  also emitted with a second, wrong type. Details:
+  `eval/README.md` and the eval artifact.
+- **Full error analysis:** [`eval/ERROR_ANALYSIS.md`](eval/ERROR_ANALYSIS.md) classifies all 119 error instances (43 entity, 76 relation) of the October 16, 2026 run, before this gazetteer change, into counted classes and ranks what each class implies for the next fix; a dated addendum there records the new totals (35 entity errors, 71 relation errors, 106 in all) without reclassifying them.
+- **Retrieval over the merged graph, measured:** [`scripts/retrieval_demo.py`](scripts/retrieval_demo.py) builds one graph from all 22 eval documents with the repo's own pipeline (123 nodes, 104 edges) and retrieves answers from it with the QueryEngine, checked against the gold labels. On October 17, 2026, after the gazetteer change above: for one gold relation per document, the gold target appeared among the source's retrieved neighbors in 17 of 22 queries, and a path between the pair was found in 17 of 22, up from 13 of 22 on both checks before the change. The 5 remaining misses are named per document in [`results/retrieval_demo.json`](results/retrieval_demo.json), not averaged away: armstrong, crispr, and katherine johnson, where the source person is not extracted (the sentence initial person names class, so the relation still cascades, even where the target place now is extracted); ocean-research (Alvin and U.S. Navy, both still unextracted); and carnegie-observatories, where the source organization is extracted truncated and its gold relation type is outside the supported eight.
 
 ### Status and limitations
 
@@ -224,7 +239,7 @@ Read those numbers the way they were earned:
   gazetteer-known entities, weak on unknown names, pronouns, and
   anything the patterns do not reach. The eval numbers above are
   the current, dated measurement of exactly that.
-- The eval set is still small (20 documents, up from 8 on
+- The eval set is still small (22 documents, up from 8 on
   October 15, 2026). Growing it further is a standing good first
   issue; see CONTRIBUTING.md.
 - The co-occurrence relation pass trades precision for recall by

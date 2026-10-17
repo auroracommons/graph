@@ -267,3 +267,36 @@ The scores this analysis describes were reproduced from the
 committed artifact before the analysis was written, and again
 after it: entities P 0.8777 R 0.8243 F1 0.8502, relations
 P 0.4949 R 0.6533 F1 0.5632, identical in both runs.
+
+## Addendum, October 17, 2026: gazetteer growth
+
+The classification above describes the run of October 16, 2026
+and is left as written. On October 17, 2026 the ranked second
+fix was taken in its gazetteer part: eight gold LOCATION names
+were added to the gazetteers (Warsaw, Armonk, Ulm, Huntsville,
+Wapakoneta, White Sulphur Springs, and Washington, D.C. as
+cities; Alabama as a state or region), each verified against
+the gold labels in `eval_set.json`. The new measured totals in
+`results/eval_results.json` are: entities P 0.8897 R 0.8716
+F1 0.8805 (129 TP, 16 FP, 19 FN, so 35 entity errors against
+43 here); relations P 0.5192 R 0.7200 F1 0.6034 (54 TP, 50 FP,
+21 FN, so 71 relation errors against 76 here); 106 error
+instances in all, against 119. The retrieval demo rose from
+13 of 22 to 17 of 22 on both checks. The new errors were not
+reclassified into the classes above in this pass; the counts
+here are artifact totals only.
+
+What this changes in the classes above, by direct check against
+the new run: seven of the eight added names are now extracted,
+so those single token gazetteer misses are gone as entity
+errors. Washington, D.C. is still not extracted even though it
+is now in the gazetteer, because the matcher requires a word
+boundary after the entry and an entry ending in a period has
+none; it stays in the boundary class. The entity cascade class
+persists in reduced form: the armstrong, crispr, and katherine
+johnson documents still lose their first gold relations at
+retrieval because the source persons (Neil Armstrong, Jennifer
+Doudna, Katherine Johnson) are still not extracted, the
+sentence initial person names class, which this pass did not
+touch. U.S. Navy (the abbreviation form) and Alvin remain
+unextracted, as recorded above.

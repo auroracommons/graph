@@ -5,20 +5,20 @@
   "gold_relations": 75,
   "rule_based": {
     "entities": {
-      "tp": 122,
-      "fp": 17,
-      "fn": 26,
-      "precision": 0.8777,
-      "recall": 0.8243,
-      "f1": 0.8502
+      "tp": 129,
+      "fp": 16,
+      "fn": 19,
+      "precision": 0.8897,
+      "recall": 0.8716,
+      "f1": 0.8805
     },
     "relations": {
-      "tp": 49,
+      "tp": 54,
       "fp": 50,
-      "fn": 26,
-      "precision": 0.4949,
-      "recall": 0.6533,
-      "f1": 0.5632
+      "fn": 21,
+      "precision": 0.5192,
+      "recall": 0.72,
+      "f1": 0.6034
     }
   },
   "llm": {

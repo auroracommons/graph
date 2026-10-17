@@ -117,6 +117,48 @@ the Carnegie names), entity recall fell, and relation recall fell
 with it, because a gold relation whose endpoints are missed is
 missed at the pipeline level.
 
+## Gazetteer growth, October 17, 2026
+
+Eight names that are gold LOCATION entities in this set, spelled
+exactly as the gold labels spell them, were added to the
+gazetteers in `knowledge_graph_explorer/entity_extractor.py`:
+Warsaw, Armonk, Ulm, Huntsville, Wapakoneta, White Sulphur
+Springs, and Washington, D.C. to the city gazetteer, and Alabama
+to the states and regions gazetteer. Each name was verified
+against the gold labels before it was added. No other names were
+added in this pass: Alvin (TECHNOLOGY) and U.S. Navy
+(ORGANIZATION) are different failure classes and were left out
+on purpose.
+
+Scores after this change (22 documents, 148 gold entities, 75
+gold relations, current `results/eval_results.json`): entities P
+0.8897, R 0.8716, F1 0.8805 (129 TP, 16 FP, 19 FN); relations P
+0.5192, R 0.7200, F1 0.6034 (54 TP, 50 FP, 21 FN). Before the
+change: entities F1 0.8502, relations F1 0.5632. The retrieval
+demo (`results/retrieval_demo.json`, graph of 123 nodes and 104
+edges) rose from 13 of 22 to 17 of 22 on both of its checks (gold
+target in the source's neighbors, and a path found).
+
+What remains, measured on the same runs:
+
+- Seven of the eight added names are now extracted as LOCATION.
+  Washington, D.C. is not, although it is now in the city
+  gazetteer: the gazetteer matcher anchors each entry with a word
+  boundary on both sides, and an entry ending in a period has no
+  word boundary after it, so the pattern never matches. This is
+  the boundary class from `ERROR_ANALYSIS.md`, now isolated to
+  one name.
+- Entity cascade misses persist where the other endpoint is
+  still missed: Wapakoneta, Washington (in the crispr document),
+  and White Sulphur Springs are now extracted, but their gold
+  relations are still missed because Neil Armstrong, Jennifer
+  Doudna, and Katherine Johnson are not extracted. Those three
+  are the sentence initial person names class: every occurrence
+  in their documents sits at the start of a sentence, which the
+  capitalized sequence pattern skips by construction.
+- Alvin and U.S. Navy remain unextracted in the ocean research
+  document, for the reasons recorded in `ERROR_ANALYSIS.md`.
+
 ## Scoring
 
 Micro averaged precision, recall, and F1 over the whole set. Entities

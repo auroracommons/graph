@@ -1,15 +1,15 @@
 {
   "corpus": "eval/eval_set.json, 22 documents, extracted with the repo's rule based pipeline and merged into one KnowledgeGraph",
   "graph": {
-    "nodes": 117,
-    "edges": 99
+    "nodes": 123,
+    "edges": 104
   },
   "summary": {
     "queries": 22,
-    "target_in_neighbors": 13,
-    "target_in_neighbors_rate": 0.5909,
-    "path_found": 13,
-    "path_found_rate": 0.5909
+    "target_in_neighbors": 17,
+    "target_in_neighbors_rate": 0.7727,
+    "path_found": 17,
+    "path_found_rate": 0.7727
   },
   "rows": [
     {
@@ -92,9 +92,9 @@
         "type": "born_in"
       },
       "neighbors_query": "neighbors of Marie Curie",
-      "target_in_neighbors": false,
+      "target_in_neighbors": true,
       "path_query": "path between Marie Curie and Warsaw",
-      "path_found": false
+      "path_found": true
     },
     {
       "doc": "ibm",
@@ -104,9 +104,9 @@
         "type": "located_in"
       },
       "neighbors_query": "neighbors of IBM",
-      "target_in_neighbors": false,
+      "target_in_neighbors": true,
       "path_query": "path between IBM and Armonk",
-      "path_found": false
+      "path_found": true
     },
     {
       "doc": "facebook",
@@ -200,9 +200,9 @@
         "type": "born_in"
       },
       "neighbors_query": "neighbors of Albert Einstein",
-      "target_in_neighbors": false,
+      "target_in_neighbors": true,
       "path_query": "path between Albert Einstein and Ulm",
-      "path_found": false
+      "path_found": true
     },
     {
       "doc": "samsung",
@@ -236,9 +236,9 @@
         "type": "born_in"
       },
       "neighbors_query": "neighbors of Jimmy Wales",
-      "target_in_neighbors": false,
+      "target_in_neighbors": true,
       "path_query": "path between Jimmy Wales and Huntsville",
-      "path_found": false
+      "path_found": true
     },
     {
       "doc": "katherine johnson",
